@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wellingborough Driving Academy</title>
+  <meta name="description" content="Professional driving lessons in Wellingborough for beginners, nervous drivers, and fast-track learners." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --navy:#0a1d38;
+      --navy-2:#112d4e;
+      --blue:#1c4a7a;
+      --sky:#dfeefb;
+      --gold:#d4af37;
+      --gold-soft:#f7e7a5;
+      --white:#ffffff;
+      --text:#1a1a1a;
+      --muted:#5e6573;
+      --light:#f4f7fb;
+      --success:#1d9b71;
+      --shadow:0 18px 45px rgba(8, 23, 40, 0.12);
+      --radius:18px;
+    }
+
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body {
+      margin:0;
+      font-family:'Inter', sans-serif;
+      background:var(--white);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    img { max-width:100%; display:block; }
+    a { text-decoration:none; color:inherit; }
+    ul { list-style:none; padding:0; margin:0; }
+
+    .container {
+      width:min(1180px, calc(100% - 32px));
+      margin:0 auto;
+    }
+
+    .topbar {
+      background:var(--navy);
+      color:var(--white);
+      font-size:0.85rem;
+      padding:12px 0;
+    }
+
+    .topbar-inner {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    .topbar .info {
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .topbar a {
+      color:var(--white);
+      opacity:0.9;
+    }
+
+    header {
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid rgba(17,45,78,0.08);
+    }
+
+    .nav {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:18px 0;
+      gap:20px;
+    }
+
+    .brand {
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:900;
+      color:var(--navy);
+      letter-spacing:-0.04em;
+    }
+
+    .brand-mark {
+      width:42px;
+      height:42px;
+      border-radius:12px;
+      background:linear-gradient(135deg, var(--gold), #f4d577);
+      display:grid;
+      place-items:center;
+      color:var(--navy);
+      font-weight:900;
+      box-shadow:var(--shadow);
+    }
+
+    .nav-links {
+      display:flex;
+      align-items:center;
+      gap:28px;
+      color:var(--navy);
+      font-weight:600;
+      font-size:0.95rem;
+    }
+
+    .nav-links a {
+      opacity:0.8;
+      transition:0.2s ease;
+    }
+
+    .nav-links a:hover {
+      opacity:1;
+      color:var(--blue);
+    }
+
+    .nav-cta {
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+
+    .btn {
+      display:inline-flex;
+      justify-content:center;
+      align-items:center;
+      gap:10px;
+      border:0;
+      border-radius:999px;
+      padding:16px 26px;
+      font-weight:700;
+      font-size:0.96rem;
+      cursor:pointer;
+      transition:0.2s ease;
+      text-decoration:none;
+    }
+
+    .btn-primary {
+      background:linear-gradient(135deg, var(--gold), #f0c748);
+      color:var(--navy);
+      box-shadow:0 16px 30px rgba(212,175,55,0.28);
+    }
+
+    .btn-primary:hover {
+      transform:translateY(-2px);
+      box-shadow:0 18px 35px rgba(212,175,55,0.36);
+    }
+
+    .btn-secondary {
+      background:var(--navy);
+      color:var(--white);
+    }
+
+    .hero {
+      position:relative;
+      background:
+        linear-gradient(115deg, rgba(10,29,56,0.8), rgba(10,29,56,0.62)),
+        url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      min-height:760px;
+      display:flex;
+      align-items:center;
+      color:var(--white);
+    }
+
+    .hero-inner {
+      display:grid;
+      grid-template-columns:1.2fr 0.8fr;
+      align-items:center;
+      gap:40px;
+      padding:90px 0 70px;
+    }
+
+    .hero-copy h1 {
+      font-size:clamp(2.8rem,5vw,5.1rem);
+      line-height:1.05;
+      letter-spacing:-0.06em;
+      margin:0 0 20px;
+      max-width:650px;
+    }
+
+    .hero-copy p {
+      font-size:1.15rem;
+      color:rgba(255,255,255,0.82);
+      max-width:640px;
+      margin:0 0 28px;
+    }
+
+    .hero-actions {
+      display:flex;
+      flex-wrap:wrap;
+      gap:16px;
+      margin-bottom:30px;
+    }
+
+    .trust-row {
+      display:flex;
+      flex-wrap:wrap;
+      gap:24px;
+      margin-top:14px;
+      color:rgba(255,255,255,0.82);
+      font-weight:600;
+      font-size:0.92rem;
+    }
+
+    .hero-card {
+      background:rgba(255,255,255,0.09);
+      border:1px solid rgba(255,255,255,0.12);
+      box-shadow:var(--shadow);
+      border-radius:24px;
+      padding:24px;
+      backdrop-filter: blur(10px);
+      margin-left:auto;
+      max-width:420px;
+      width:100%;
+    }
+
+    .score-badge {
+      display:inline-flex;
+      align-items:center;
+      background:rgba(255,255,255,0.1);
+      border:1px solid rgba(255,255,255,0.15);
+      border-radius:999px;
+      padding:10px 14px;
+      font-size:0.78rem;
+      letter-spacing:0.08em;
+      text-transform:uppercase;
+      color:var(--gold-soft);
+      margin-bottom:16px;
+    }
+
+    .mini-stat {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding:18px 0;
+      border-bottom:1px solid rgba(255,255,255,0.12);
+    }
+
+    .mini-stat:last-child { border-bottom:none; }
+
+    .mini-stat strong {
+      font-size:1.8rem;
+      font-weight:800;
+      letter-spacing:-0.05em;
+      color:var(--white);
+    }
+
+    .mini-stat span {
+      color:rgba(255,255,255,0.75);
+      font-size:0.92rem;
+    }
+
+    section { padding:100px 0; }
+
+    .section-heading {
+      max-width:720px;
+      margin:0 auto 50px;
+      text-align:center;
+    }
+
+    .eyebrow {
+      display:inline-block;
+      text-transform:uppercase;
+      letter-spacing:0.12em;
+      font-size:0.76rem;
+      font-weight:800;
+      color:var(--blue);
+      margin-bottom:12px;
+    }
+
+    h2 {
+      margin:0;
+      font-size:clamp(2.1rem,4vw,3.3rem);
+      line-height:1.1;
+      letter-spacing:-0.05em;
+      color:var(--navy);
+    }
+
+    .section-heading p {
+      margin-top:16px;
+      font-size:1.05rem;
+      color:var(--muted);
+    }
+
+    .about {
+      background:linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+    }
+
+    .about-grid {
+      display:grid;
+      grid-template-columns:1.05fr 0.95fr;
+      gap:42px;
+      align-items:center;
+    }
+
+    .about-text p {
+      color:var(--muted);
+      font-size:1.05rem;
+      margin-bottom:18px;
+    }
+
+    .about-list {
+      display:grid;
+      gap:18px;
+      margin-top:30px;
+    }
+
+    .about-item {
+      display:flex;
+      align-items:flex-start;
+      gap:16px;
+      padding:18px 18px;
+      border-radius:16px;
+      background:#fff;
+      border:1px solid rgba(17,45,78,0.08);
+      box-shadow:0 10px 30px rgba(17,45,78,0.04);
+    }
+
+    .tick {
+      width:34px;
+      height:34px;
+      background:linear-gradient(135deg, var(--gold), #f3d86b);
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      font-weight:900;
+      color:var(--navy);
+      flex-shrink:0;
+      margin-top:2px;
+    }
+
+    .about-item strong {
+      display:block;
+      color:var(--navy);
+      margin-bottom:4px;
+      font-size:1.02rem;
+    }
+
+    .about-card {
+      position:relative;
+      border-radius:28px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      background:#eaf3ff;
+      min-height:500px;
+    }
+
+    .about-card img {
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      min-height:500px;
+    }
+
+    .about-badge {
+      position:absolute;
+      right:22px;
+      bottom:22px;
+      background:rgba(10,29,56,0.88);
+      color:var(--white);
+      padding:20px 18px;
+      border-radius:18px;
+      width:220px;
+      box-shadow:var(--shadow);
+    }
+
+    .about-badge strong {
+      display:block;
+      font-size:2rem;
+      letter-spacing:-0.05em;
+      margin-bottom:6px;
+    }
+
+    .why-grid {
+      display:grid;
+      grid-template-columns:repeat(4, minmax(0,1fr));
+      gap:22px;
+      margin-top:24px;
+    }
+
+    .feature {
+      background:#fff;
+      border:1px solid rgba(17,45,78,0.08);
+      border-radius:var(--radius);
+      padding:26px 22px;
+      box-shadow:0 12px 25px rgba(17,45,78,0.03);
+    }
+
+    .feature-icon {
+      width:52px;
+      height:52px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg, var(--sky), #edf6ff);
+      color:var(--navy);
+      font-size:1.5rem;
+      margin-bottom:18px;
+      font-weight:800;
+    }
+
+    .feature h3 {
+      margin:0 0 12px;
+      color:var(--navy);
+      font-size:1.18rem;
+    }
+
+    .feature p {
+      margin:0;
+      color:var(--muted);
+      font-size:0.97rem;
+    }
+
+    .lessons {
+      background:linear-gradient(180deg, #f6f9ff 0%, #ffffff 100%);
+    }
+
+    .lesson-grid {
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:28px;
+    }
+
+    .lesson-card {
+      background:#fff;
+      border-radius:24px;
+      overflow:hidden;
+      border:1px solid rgba(17,45,78,0.08);
+      box-shadow:0 18px 35px rgba(17,45,78,0.06);
+      transition:0.25s ease;
+    }
+
+    .lesson-card:hover {
+      transform:translateY(-4px);
+    }
+
+    .lesson-card img {
+      width:100%;
+      height:250px;
+      object-fit:cover;
+    }
+
+    .lesson-body {
+      padding:26px 22px 28px;
+    }
+
+    .lesson-body h3 {
+      margin:0 0 10px;
+      font-size:1.48rem;
+      letter-spacing:-0.04em;
+      color:var(--navy);
+    }
+
+    .lesson-body p {
+      color:var(--muted);
+      margin:0 0 16px;
+      font-size:0.98rem;
+    }
+
+    .lesson-list {
+      display:grid;
+      gap:8px;
+      margin-top:16px;
+      color:var(--navy);
+      font-weight:500;
+      font-size:0.96rem;
+    }
+
+    .lesson-list li::before {
+      content:"•";
+      color:var(--gold);
+      margin-right:8px;
+      font-weight:700;
+    }
+
+    .process {
+      background:var(--navy);
+      color:var(--white);
+    }
+
+    .process h2 { color:var(--white); }
+    .process .section-heading p {
+      color:rgba(255,255,255,0.72);
+    }
+
+    .process-grid {
+      display:grid;
+      grid-template-columns:repeat(4, minmax(0,1fr));
+      gap:22px;
+      margin-top:50px;
+    }
+
+    .step {
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.1);
+      border-radius:20px;
+      padding:28px 22px;
+    }
+
+    .step-number {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:44px;
+      height:44px;
+      border-radius:12px;
+      background:linear-gradient(135deg, var(--gold), #f8d96e);
+      color:var(--navy);
+      font-weight:900;
+      margin-bottom:18px;
+    }
+
+    .step h3 {
+      margin:0 0 10px;
+      font-size:1.2rem;
+    }
+
+    .step p {
+      margin:0;
+      color:rgba(255,255,255,0.72);
+      font-size:0.96rem;
+    }
+
+    .pricing {
+      background:#fff;
+    }
+
+    .pricing-grid {
+      display:grid;
+      grid-template-columns:repeat(4, minmax(0,1fr));
+      gap:22px;
+      margin-top:28px;
+    }
+
+    .price-card {
+      background:#fff;
+      border:1px solid rgba(17,45,78,0.08);
+      border-radius:22px;
+      padding:28px 22px;
+      box-shadow:0 16px 30px rgba(17,45,78,0.04);
+      position:relative;
+    }
+
+    .price-card.featured {
+      background:linear-gradient(180deg, #0a1d38 0%, #112d4e 100%);
+      color:var(--white);
+      transform:translateY(-12px);
+      box-shadow:0 22px 45px rgba(10,29,56,0.14);
+    }
+
+    .badge {
+      display:inline-block;
+      padding:8px 10px;
+      background:var(--gold-soft);
+      color:var(--navy);
+      font-size:0.72rem;
+      border-radius:999px;
+      font-weight:800;
+      letter-spacing:0.08em;
+      text-transform:uppercase;
+      margin-bottom:16px;
+    }
+
+    .price-card.featured .badge {
+      background:var(--gold);
+      color:var(--navy);
+    }
+
+    .price-card h3 {
+      margin:0 0 10px;
+      font-size:1.42rem;
+      color:inherit;
+    }
+
+    .price {
+      font-size:2.2rem;
+      font-weight:900;
+      letter-spacing:-0.06em;
+      color:inherit;
+      margin-bottom:14px;
+    }
+
+    .price-card p {
+      margin:0 0 18px;
+      color:inherit;
+      opacity:0.8;
+      font-size:0.95rem;
+    }
+
+    .price-card ul {
+      display:grid;
+      gap:8px;
+      margin:20px 0 22px;
+      color:inherit;
+      opacity:0.9;
+      font-size:0.96rem;
+    }
+
+    .price-card li::before {
+      content:"✓";
+      color:var(--gold);
+      margin-right:8px;
+      font-weight:800;
+    }
+
+    .price-card.featured li::before {
+      color:var(--gold-soft);
+    }
+
+    .cta-band {
+      background:linear-gradient(135deg, #f7ecbf 0%, #edf5ff 100%);
+      padding:32px;
+      border-radius:26px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+      box-shadow:0 18px 35px rgba(17,45,78,0.08);
+      margin-top:40px;
+    }
+
+    .cta-band h3 {
+      margin:0;
+      font-size:clamp(1.6rem,3vw,2.3rem);
+      letter-spacing:-0.05em;
+      color:var(--navy);
+    }
+
+    .grid-2 {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:30px;
+      align-items:center;
+    }
+
+    .reviews {
+      background:#f8fbff;
+    }
+
+    .review-card {
+      background:#fff;
+      border:1px solid rgba(17,45,78,0.08);
+      border-radius:20px;
+      padding:24px;
+      box-shadow:0 12px 30px rgba(17,45,78,0.04);
+    }
+
+    .stars {
+      color:var(--gold);
+      letter-spacing:0.12em;
+      font-size:1.05rem;
+      margin-bottom:16px;
+    }
+
+    .review-card p {
+      color:var(--muted);
+      margin:0 0 18px;
+      font-size:1rem;
+    }
+
+    .reviewer {
+      font-weight:800;
+      color:var(--navy);
+    }
+
+    .faq-box {
+      width:min(900px, 100%);
+      margin:0 auto;
+      background:#fff;
+      border:1px solid rgba(17,45,78,0.08);
+      border-radius:20px;
+      overflow:hidden;
+      box-shadow:0 14px 28px rgba(17,45,78,0.05);
+    }
+
+    .faq-item {
+      border-bottom:1px solid rgba(17,45,78,0.08);
+      padding:0 24px;
+    }
+
+    .faq-item:last-child { border-bottom:none; }
+
+    .faq-title {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      padding:22px 0;
+      font-weight:700;
+      color:var(--navy);
+      cursor:pointer;
+    }
+
+    .faq-title span:last-child {
+      color:var(--gold);
+      font-size:1.5rem;
+      line-height:1;
+    }
+
+    .faq-content {
+      display:none;
+      color:var(--muted);
+      padding:0 0 22px;
+      font-size:0.98rem;
+    }
+
+    .faq-item.open .faq-content {
+      display:block;
+    }
+
+    .faq-item.open .faq-title span:last-child {
+      transform:rotate(45deg);
+    }
+
+    .contact {
+      background:linear-gradient(180deg, #ffffff 0%, #f4f8ff 100%);
+    }
+
+    .contact-wrap {
+      display:grid;
+      grid-template-columns:0.9fr 1.1fr;
+      gap:28px;
+      align-items:flex-start;
+    }
+
+    .contact-info {
+      background:var(--navy);
+      color:var(--white);
+      padding:36px 30px;
+      border-radius:24px;
+      box-shadow:var(--shadow);
+    }
+
+    .contact-info h3 {
+      margin:0 0 14px;
+      font-size:1.7rem;
+      letter-spacing:-0.05em;
+    }
+
+    .info-list {
+      display:grid;
+      gap:18px;
+      margin-top:26px;
+    }
+
+    .info-item {
+      display:flex;
+      gap:14px;
+      align-items:flex-start;
+      color:rgba(255,255,255,0.82);
+    }
+
+    .info-item .icon {
+      width:42px;
+      height:42px;
+      border-radius:12px;
+      background:rgba(255,255,255,0.08);
+      display:grid;
+      place-items:center;
+      font-weight:900;
+      color:var(--gold-soft);
+      flex-shrink:0;
+    }
+
+    .form-card {
+      background:#fff;
+      border:1px solid rgba(17,45,78,0.08);
+      border-radius:24px;
+      padding:28px;
+      box-shadow:0 18px 35px rgba(17,45,78,0.05);
+    }
+
+    .form-grid {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+    }
+
+    .field {
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+
+    .field.full {
+      grid-column:1 / -1;
+    }
+
+    label {
+      font-weight:700;
+      color:var(--navy);
+      font-size:0.92rem;
+    }
+
+    input, textarea {
+      width:100%;
+      border:1px solid rgba(17,45,78,0.12);
+      border-radius:12px;
+      padding:14px 15px;
+      font:inherit;
+      background:#f9fbff;
+      color:var(--text);
+    }
+
+    textarea {
+      min-height:150px;
+      resize:vertical;
+    }
+
+    footer {
+      background:var(--navy);
+      color:rgba(255,255,255,0.8);
+      padding:28px 0;
+    }
+
+    .footer-inner {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .footer-links {
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    @media (max-width: 980px) {
+      .hero-inner,
+      .about-grid,
+      .contact-wrap,
+      .grid-2 {
+        grid-template-columns:1fr;
+      }
+
+      .hero-card {
+        margin:0 auto;
+      }
+
+      .why-grid,
+      .process-grid,
+      .pricing-grid {
+        grid-template-columns:repeat(2, minmax(0,1fr));
+      }
+
+      .lesson-grid {
+        grid-template-columns:1fr;
+      }
+
+      .nav-links {
+        display:none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .topbar-inner {
+        justify-content:center;
+      }
+
+      .form-grid,
+      .why-grid,
+      .process-grid,
+      .pricing-grid {
+        grid-template-columns:1fr;
+      }
+
+      .hero {
+        min-height:640px;
+      }
+
+      .hero-actions {
+        flex-direction:column;
+        align-items:stretch;
+      }
+
+      .btn {
+        width:100%;
+      }
+
+      .cta-band {
+        flex-direction:column;
+        align-items:flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="info">
+        <a href="tel:+440000000000">Call: +44 0000 000000</a>
+        <a href="mailto:info@wellingboroughdrivingacademy.co.uk">Email: info@wellingboroughdrivingacademy.co.uk</a>
+      </div>
+      <div>Flexible lessons • Manual & Automatic • Local tuition</div>
+    </div>
+  </div>
+
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="brand-mark">W</div>
+        <span>Wellingborough Driving Academy</span>
+      </div>
+
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#lessons">Lessons</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-cta">
+        <a class="btn btn-secondary" href="#contact">Book now</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <h1>Drive with Confidence. Learn with the Best.</h1>
+          <p>
+            Professional driving lessons in Wellingborough for beginners, nervous drivers, and fast-track learners.
+            We help you build confidence, sharpen your skills, and drive safely with real-world experience.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Book a lesson</a>
+            <a class="btn btn-secondary" href="tel:+440000000000">Call now</a>
+          </div>
+
+          <div class="trust-row">
+            <span>Friendly instructors</span>
+            <span>Patient teaching</span>
+            <span>Flexible timings</span>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="score-badge">Trusted local driving tuition</div>
+
+          <div class="mini-stat">
+            <div>
+              <strong>5★</strong>
+              <span>Customer rating</span>
+            </div>
+            <div>
+              <strong>100%</strong>
+              <span>Supportive approach</span>
+            </div>
+          </div>
+
+          <div class="mini-stat">
+            <div>
+              <strong>1:1</strong>
+              <span>Personalised lessons</span>
+            </div>
+            <div>
+              <strong>Flexible</strong>
+              <span>Lesson times</span>
+            </div>
+          </div>
+
+          <div class="mini-stat">
+            <div>
+              <strong>Manual</strong>
+              <span>Automatic available</span>
+            </div>
+            <div>
+              <strong>Local</strong>
+              <span>Wellingborough routes</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container about-grid">
+        <div class="about-text">
+          <span class="eyebrow">About us</span>
+          <h2>Your confidence starts here.</h2>
+          <p>
+            At Wellingborough Driving Academy, we believe learning to drive should feel empowering,
+            clear, and stress-free. Whether you are taking your first lesson or returning to the
+            road after a break, our experienced instructors provide calm, supportive tuition designed
+            around your pace and goals.
+          </p>
+          <p>
+            We help learners build practical driving confidence, improve road awareness, and develop
+            the skills needed to become safe, capable drivers. From nervous beginners to confident
+            motorists, we guide every learner with patience, structure, and professionalism.
+          </p>
+
+          <div class="about-list">
+            <div class="about-item">
+              <div class="tick">✓</div>
+              <div>
+                <strong>Patient, supportive instructors</strong>
+                <span>Helping you feel calm and confident from day one.</span>
+              </div>
+            </div>
+
+            <div class="about-item">
+              <div class="tick">✓</div>
+              <div>
+                <strong>Tailored lessons</strong>
+                <span>Every lesson is adapted to your experience, confidence, and goals.</span>
+              </div>
+            </div>
+
+            <div class="about-item">
+              <div class="tick">✓</div>
+              <div>
+                <strong>Modern, practical tuition</strong>
+                <span>Focused on real-world driving and strong road awareness.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-card">
+          <img src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=1200&q=80" alt="Driving lesson car" />
+          <div class="about-badge">
+            <strong>100%</strong>
+            <span>Supportive training for learners of every level</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Why choose us</span>
+          <h2>More than just driving lessons.</h2>
+          <p>
+            We combine expert teaching with a friendly, encouraging approach that helps every learner
+            feel comfortable, capable, and ready to take the next step.
+          </p>
+        </div>
+
+        <div class="why-grid">
+          <div class="feature">
+            <div class="feature-icon">🚗</div>
+            <h3>Friendly instructors</h3>
+            <p>Patient, encouraging guidance that helps you feel relaxed and confident.</p>
+          </div>
+
+          <div class="feature">
+            <div class="feature-icon">🧠</div>
+            <h3>Tailored teaching</h3>
+            <p>Lessons designed around your learning pace, confidence, and objectives.</p>
+          </div>
+
+          <div class="feature">
+            <div class="feature-icon">📅</div>
+            <h3>Flexible timings</h3>
+            <p>Options that fit around work, study, and everyday life.</p>
+          </div>
+
+          <div class="feature">
+            <div class="feature-icon">🏆</div>
+            <h3>Confidence first</h3>
+            <p>Building safe habits and road awareness from the very first lesson.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="lessons" id="lessons">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Our driving lessons</span>
+          <h2>Learn at your own pace.</h2>
+          <p>Whether you are a total beginner or want to sharpen your skills, we offer structured support that works for you.</p>
+        </div>
+
+        <div class="lesson-grid">
+          <article class="lesson-card">
+            <img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?auto=format&fit=crop&w=1000&q=80" alt="Beginner driver lessons" />
+            <div class="lesson-body">
+              <h3>Beginner Lessons</h3>
+              <p>Perfect for first-time drivers who want to build a solid foundation and gain confidence from the start.</p>
+              <ul class="lesson-list">
+                <li>Starting from basics</li>
+                <li>Vehicle control</li>
+                <li>Road awareness</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="lesson-card">
+            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1000&q=80" alt="Nervous driver lessons" />
+            <div class="lesson-body">
+              <h3>Nervous Driver Lessons</h3>
+              <p>Friendly, low-pressure coaching to help remove anxiety and build confidence behind the wheel.</p>
+              <ul class="lesson-list">
+                <li>Slow, steady progression</li>
+                <li>Comfort and reassurance</li>
+                <li>Confidence-building tasks</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="lesson-card">
+            <img src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?auto=format&fit=crop&w=1000&q=80" alt="Intensive driving course" />
+            <div class="lesson-body">
+              <h3>Intensive Courses</h3>
+              <p>Ideal for learners who want to progress quickly and gain confidence in a shorter timeframe.</p>
+              <ul class="lesson-list">
+                <li>Fast-track learning</li>
+                <li>Structured progress</li>
+                <li>Targeted skill development</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="process">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Our process</span>
+          <h2>A smoother, simpler path to passing.</h2>
+          <p>We make learning to drive feel manageable, structured, and encouraging at every step.</p>
+        </div>
+
+        <div class="process-grid">
+          <div class="step">
+            <div class="step-number">1</div>
+            <h3>Book your first lesson</h3>
+            <p>Choose a lesson time and package that suits your schedule and experience level.</p>
+          </div>
+
+          <div class="step">
+            <div class="step-number">2</div>
+            <h3>Learn with a patient instructor</h3>
+            <p>We adapt every lesson to your current confidence, strengths, and goals.</p>
+          </div>
+
+          <div class="step">
+            <div class="step-number">3</div>
+            <h3>Build driving confidence</h3>
+            <p>From vehicle control to road awareness, we focus on practical, real-world driving.</p>
+          </div>
+
+          <div class="step">
+            <div class="step-number">4</div>
+            <h3>Pass with confidence</h3>
+            <p>We help you become calm, capable, and prepared to drive independently.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Pricing</span>
+          <h2>Flexible lesson options</h2>
+          <p>Choose the package that best matches your learning pace and goals.</p>
+        </div>
+
+        <div class="pricing-grid">
+          <div class="price-card">
+            <h3>One Lesson</h3>
+            <div class="price">£35</div>
+            <p>Ideal for a first lesson or a confidence boost.</p>
+            <ul>
+              <li>1 hour of personalised tuition</li>
+              <li>Flexible scheduling</li>
+              <li>Professional lesson guidance</li>
+            </ul>
+            <a class="btn btn-secondary" href="#contact">Book now</a>
+          </div>
+
+          <div class="price-card">
+            <h3>10 Lessons</h3>
+            <div class="price">£320</div>
+            <p>A structured option for steady progress.</p>
+            <ul>
+              <li>Progress-focused sessions</li>
+              <li>Confidence building</li>
+              <li>Road skill development</li>
+            </ul>
+            <a class="btn btn-secondary" href="#contact">Book now</a>
+          </div>
+
+          <div class="price-card featured">
+            <div class="badge">Most Popular</div>
+            <h3>20 Lessons</h3>
+            <div class="price">£620</div>
+            <p>Great for learners aiming to advance faster.</p>
+            <ul>
+              <li>Extended learning plan</li>
+              <li>Test preparation support</li>
+              <li>Better value for regular lessons</li>
+            </ul>
+            <a class="btn btn-primary" href="#contact">Book now</a>
+          </div>
+
+          <div class="price-card">
+            <h3>Intensive Course</h3>
+            <div class="price">From £780</div>
+            <p>For learners who want rapid progress.</p>
+            <ul>
+              <li>Fast-track structure</li>
+              <li>Targeted driving focus</li>
+              <li>Confidence and control</li>
+            </ul>
+            <a class="btn btn-secondary" href="#contact">Book now</a>
+          </div>
+        </div>
+
+        <div class="cta-band">
+          <h3>Ready to start driving?</h3>
+          <a class="btn btn-primary" href="#contact">Book your first lesson today</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="reviews" id="reviews">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Testimonials</span>
+          <h2>What our learners say.</h2>
+          <p>Real feedback from drivers who felt supported, confident, and ready for the road.</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>
+              “I was extremely nervous before starting lessons, but my instructor made me feel calm
+              and confident from day one. I passed first time and I’m so grateful for the support I received.”
+            </p>
+            <div class="reviewer">– Sarah M.</div>
+          </div>
+
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>
+              “Very patient, professional, and encouraging. The lessons were structured and easy to follow,
+              and I felt much more confident after every session.”
+            </p>
+            <div class="reviewer">– Daniel R.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">FAQ</span>
+          <h2>Frequently asked questions.</h2>
+        </div>
+
+        <div class="faq-box">
+          <div class="faq-item open">
+            <div class="faq-title">
+              <span>Do you teach complete beginners?</span>
+              <span>+</span>
+            </div>
+            <div class="faq-content">
+              Yes. We teach learners of all levels, including complete beginners who want clear, calm instruction from the start.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-title">
+              <span>Can I book lessons around work or school?</span>
+              <span>+</span>
+            </div>
+            <div class="faq-content">
+              Absolutely. We offer flexible lesson times to help fit around your routine and commitments.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-title">
+              <span>Do you offer automatic driving lessons?</span>
+              <span>+</span>
+            </div>
+            <div class="faq-content">
+              Yes. We provide lessons in both manual and automatic vehicles depending on the learner’s preference and needs.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-title">
+              <span>Are you suitable for nervous drivers?</span>
+              <span>+</span>
+            </div>
+            <div class="faq-content">
+              Absolutely. We specialise in helping nervous and anxious learners build confidence gradually and safely.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-title">
+              <span>Do you offer intensive courses?</span>
+              <span>+</span>
+            </div>
+            <div class="faq-content">
+              Yes. We provide structured intensive lessons for learners who want to make faster progress while maintaining confidence and safety.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Get in touch</span>
+          <h2>Let’s get you started.</h2>
+        </div>
+
+        <div class="contact-wrap">
+          <div class="contact-info">
+            <h3>Wellingborough Driving Academy</h3>
+            <p>Professional driving lessons for beginners, nervous drivers, and confident learners.</p>
+
+            <div class="info-list">
+              <div class="info-item">
+                <div class="icon">📍</div>
+                <div>
+                  <strong>Address</strong><br>
+                  Wellingborough, Northamptonshire<br>
+                  United Kingdom
+                </div>
+              </div>
+
+              <div class="info-item">
+                <div class="icon">📞</div>
+                <div>
+                  <strong>Phone</strong><br>
+                  +44 0000 000000
+                </div>
+              </div>
+
+              <div class="info-item">
+                <div class="icon">✉️</div>
+                <div>
+                  <strong>Email</strong><br>
+                  info@wellingboroughdrivingacademy.co.uk
+                </div>
+              </div>
+
+              <div class="info-item">
+                <div class="icon">🕒</div>
+                <div>
+                  <strong>Opening hours</strong><br>
+                  Mon-Sat: 8:00 AM – 8:00 PM
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-card">
+            <form>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="name">Full name</label>
+                  <input id="name" type="text" placeholder="Your name" />
+                </div>
+
+                <div class="field">
+                  <label for="phone">Phone number</label>
+                  <input id="phone" type="tel" placeholder="Your phone" />
+                </div>
+
+                <div class="field full">
+                  <label for="email">Email address</label>
+                  <input id="email" type="email" placeholder="Your email" />
+                </div>
+
+                <div class="field full">
+                  <label for="message">Message</label>
+                  <textarea id="message" placeholder="Tell us about your driving goals..."></textarea>
+                </div>
+              </div>
+
+              <div style="margin-top:22px;">
+                <button type="submit" class="btn btn-primary">Send message</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>© 2026 Wellingborough Driving Academy. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#lessons">Lessons</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.faq-title').forEach((item) => {
+      item.addEventListener('click', () => {
+        const parent = item.parentElement;
+        parent.classList.toggle('open');
+      });
+    });
+
+    document.querySelector('form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      alert('Thank you! Your enquiry has been sent.');
+      this.reset();
+    });
+  </script>
+</body>
+</html>
